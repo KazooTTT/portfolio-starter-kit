@@ -5,9 +5,9 @@ const matter = require('gray-matter')
 
 async function generate() {
   const feed = new RSS({
-    title: 'Your Name',
-    site_url: 'https://yoursite.com',
-    feed_url: 'https://yoursite.com/feed.xml'
+    title: 'KazooTTT Blog',
+    site_url: 'https://portfolio-starter-kit-lovat-gamma.vercel.app',
+    feed_url: 'https://portfolio-starter-kit-lovat-gamma.vercel.app/feed.xml'
   })
 
   const posts = await fs.readdir(path.join(__dirname, '..', 'pages', 'posts'))
@@ -24,10 +24,10 @@ async function generate() {
       allPosts.push({
         title: frontmatter.data.title,
         url: '/posts/' + name.replace(/\.mdx?/, ''),
-        date: frontmatter.data.date,
-        description: frontmatter.data.description,
-        categories: frontmatter.data.tag.split(', '),
-        author: frontmatter.data.author
+        date: frontmatter.data?.date,
+        description: frontmatter.data?.description,
+        categories: frontmatter.data?.tag?.split(', '),
+        author: frontmatter.data?.author
       })
     })
   )
